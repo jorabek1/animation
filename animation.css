@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    padding: 30px;
+}
+
+.container{
+    width: 600px;
+    height: 400px;
+    margin: 30px auto;
+    border: 2px solid black;
+}
+
+.box{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: white;
+    text-transform: uppercase;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+.box1{
+    background-color: crimson;
+    /* animation-name: anim-bg;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: 3;
+    animation-direction: alternate;
+    animation-fill-mode: forwards; */
+    animation: anim-bg 2s linear 0s infinite alternate forwards;
+}
+
+@keyframes anim-bg{
+    to{
+        background-color: navy;
+    }
+}
+
+.box2{
+    background-color: green;
+    animation: anim-shape 1s linear 0s infinite alternate forwards;
+}
+
+@keyframes anim-shape{
+    to{
+        border-radius: 50%;
+    }
+}
+
+.box3{
+    background-color: blueviolet;
+    animation: anim-action 1s linear 0s infinite alternate forwards;
+}
+
+@keyframes anim-action {
+    to{
+        margin-left: 450px;
+    }
+}
+
+.box4{
+    background-color: teal;
+    animation: anim-size 1s linear 0s infinite alternate forwards;
+}
+
+@keyframes anim-size{
+    to{
+        transform: scale(1.5);
+    }
+}
+.loader {
+    --s: 25px;
+    --g :5px;  
+    
+    width: calc(3*(1.353*var(--s) + var(--g)));
+    display: grid;
+    justify-items: end;
+    aspect-ratio: 3;
+    overflow: hidden;
+    --_m: linear-gradient(90deg,#0000,#000 15px calc(100% - 15px),#0000);
+    -webkit-mask: var(--_m);
+            mask: var(--_m);
+  }
+  .loader:before { 
+    content: "";
+    width: 200%;
+    background:
+      linear-gradient(90deg,#ff1818 50%,#0000 0),
+      conic-gradient(from -90deg at var(--s) calc(0.353*var(--s)),
+        #fff 135deg,#666 0 270deg,#aaa 0); 
+    background-blend-mode: multiply;
+    --_m:
+      linear-gradient(to bottom right,
+         #0000 calc(0.25*var(--s)),#000 0 calc(100% - calc(0.25*var(--s)) - 1.414*var(--g)),#0000 0),
+      conic-gradient(from -90deg at right var(--g) bottom var(--g),#000 90deg,#0000 0);
+    -webkit-mask: var(--_m);
+            mask: var(--_m);
+    background-size:   calc(100%/3) 100%, calc(100%/6) 100%;
+    -webkit-mask-size: calc(100%/6) 100%;
+            mask-size: calc(100%/6) 100%;
+    -webkit-mask-composite: source-in;
+            mask-composite: intersect;
+    animation: l10 1s infinite linear;
+  }
+  @keyframes l10 {
+    to {transform:translate(calc(100%/3))}
+  }
+
+  
+.loader1 {
+    width: 40px;
+    height: 40px;
+    color: #f03355;
+    background:
+      conic-gradient(from  -45deg at top    20px left 50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),
+      conic-gradient(from   45deg at right  20px top  50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),
+      conic-gradient(from  135deg at bottom 20px left 50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),
+      conic-gradient(from -135deg at left   20px top  50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg);
+    animation: l4 1.5s infinite cubic-bezier(0.3,1,0,1);
+  }
+  @keyframes l4 {
+     50%  {width:60px;height: 60px;transform: rotate(180deg)}
+     100% {transform: rotate(360deg)}
+  }
